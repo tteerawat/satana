@@ -19,7 +19,7 @@ defmodule Satana.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Satana.Application, []},
+      mod: {Satana.Application, [env: Mix.env()]},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -33,6 +33,8 @@ defmodule Satana.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:bypass, "~> 2.1", only: :test},
+      {:finch, "~> 0.6"},
       {:jason, "~> 1.0"},
       {:phoenix, "~> 1.5.8"},
       {:plug_cowboy, "~> 2.0"},

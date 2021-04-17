@@ -28,3 +28,4 @@ satana-*.tar
 /priv/static/
 
 .elixir_ls
+.env
