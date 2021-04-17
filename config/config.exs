@@ -31,6 +31,9 @@ config :satana, Satana.Blocknative.Config,
     password: System.get_env("BLOCKNATIVE_BASIC_AUTH_PASSWORD")
   ]
 
+# slack
+config :satana, Satana.Slack.Config, webhook_url: System.get_env("SLACK_WEBHOOK_URL")
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
