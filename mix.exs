@@ -36,6 +36,7 @@ defmodule Satana.MixProject do
       {:bypass, "~> 2.1", only: :test},
       {:finch, "~> 0.6"},
       {:jason, "~> 1.0"},
+      {:mimic, "~> 1.5", only: :test},
       {:phoenix, "~> 1.5.8"},
       {:plug_cowboy, "~> 2.0"},
       {:telemetry_metrics, "~> 0.4"},

@@ -5,17 +5,14 @@ defmodule Satana.Application do
 
   use Application
 
-  def start(_type, _args) do
-    children = [
-      # Start the Telemetry supervisor
-      SatanaWeb.Telemetry,
-      # Start the PubSub system
-      {Phoenix.PubSub, name: Satana.PubSub},
-      # Start the Endpoint (http/https)
-      SatanaWeb.Endpoint
-      # Start a worker by calling: Satana.Worker.start_link(arg)
-      # {Satana.Worker, arg}
-    ]
+  def start(_type, args) do
+    children =
+      [
+        SatanaWeb.Telemetry,
+        {Phoenix.PubSub, name: Satana.PubSub},
+        SatanaWeb.Endpoint,
+        {Finch, name: Satana.Finch}
+      ] ++ list_children_by_env(args[:env])
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
@@ -28,5 +25,13 @@ defmodule Satana.Application do
   def config_change(changed, _new, removed) do
     SatanaWeb.Endpoint.config_change(changed, removed)
     :ok
+  end
+
+  defp list_children_by_env(:test) do
+    []
+  end
+
+  defp list_children_by_env(_) do
+    [Satana.ETHTransactions.Store]
   end
 end
