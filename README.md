@@ -2,8 +2,9 @@
 
 ## Setup
 
-First of all, we need working installations of Elixir and Erlang. The
-easiest way to achieve this is via [Installation Page](https://elixir-lang.org/install.html).
+- [Elixir/Erlang installation](https://elixir-lang.org/install.html)
+- [Blocknative account](https://explorer.blocknative.com/account)
+- [Slack webhook setup](https://api.slack.com/messaging/webhooks)
 
 ## Running
 
@@ -11,7 +12,7 @@ easiest way to achieve this is via [Installation Page](https://elixir-lang.org/i
 - Configure environment variables, check `.env.sample`
 - Start Phoenix endpoint with `mix phx.server`
 
-## API call Examples
+## Examples
 
 - List pending transactions
 
