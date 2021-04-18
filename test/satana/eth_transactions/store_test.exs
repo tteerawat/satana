@@ -4,14 +4,6 @@ defmodule Satana.ETHTransactions.StoreTest do
   alias Satana.ETHTransactions.Store
   alias Satana.ETHTransactions.Transaction
 
-  defmodule Messenger do
-    require Logger
-
-    def send_message(text) do
-      Logger.info(text)
-    end
-  end
-
   setup do
     start_supervised!(Store)
 
