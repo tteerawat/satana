@@ -8,3 +8,10 @@ config :satana, SatanaWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+# blocknative
+config :satana, Satana.Blocknative.Config,
+  basic_auth: [
+    username: "test",
+    password: "test"
+  ]
